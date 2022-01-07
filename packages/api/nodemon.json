@@ -1,0 +1,6 @@
+{
+	"watch": ["src"],
+	"ignore": ["build/*"],
+	"ext": "ts",
+	"exec": "yarn clean && yarn build && node ."
+}

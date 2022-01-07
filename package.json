@@ -1,0 +1,19 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "dev": "lerna run --parallel dev",
+    "format": "npx prettier --write \"./**/*.{ts,js,json,md}\"",
+    "lint": "npx eslint . --ext .ts,.tsx",
+    "test": "lerna run test",
+    "compose-up": "docker-compose up -d"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
