@@ -1,15 +1,11 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
     "target": "ES6",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext",
-      "ES6"
     ],
     "noEmit": true,
     "esModuleInterop": true,
@@ -21,11 +17,6 @@
     "typeRoots": [
       "@types"
     ],
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "incremental": true,
     "baseUrl": "./src",
     "paths": {
       "@/components/*": [

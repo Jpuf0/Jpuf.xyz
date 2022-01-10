@@ -99,8 +99,6 @@ export const pinnedRepos = async (_: unknown, res: Response) => {
 		language: props.primaryLanguage,
 	}));
 
-	console.log(response.data.viewer.pinnedItems.nodes[0].defaultBranchRef, data);
-
 	await redis.psetex(CACHE_KEY, CACHE_TIME, JSON.stringify(data));
 
 	res.set("Cache-Control", `max-age=${Math.ceil(CACHE_TIME / 1000)}`);

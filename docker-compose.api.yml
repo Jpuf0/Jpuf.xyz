@@ -21,16 +21,16 @@ services:
         networks:
             - backend
     server:
-        image: 
+        image: jpuf-xyz_server:latest 
         build:
             context: .
             dockerfile: ./packages/api/Dockerfile
         environment:
             - REDIS_HOST=cache
             - REDIS_PORT=6379
-            - ENV_PATH=
+            - ENV_PATH=/run/secrets/API_ENV_FILE
         secrets:
-            - 
+            - API_ENV_FILE
         ports:
             - target: 80
         depends_on:
@@ -64,6 +64,6 @@ networks:
         name: api_swarm
         driver: overlay
 
-secrets: # top level secrets block
+secrets:
     API_ENV_FILE:
         external: true

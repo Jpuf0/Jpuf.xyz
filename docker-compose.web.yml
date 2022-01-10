@@ -15,13 +15,13 @@ services:
             - backend
 
     server:
-        image: 
+        image: jpuf-xyz_web:latest
         build:
             context: .
             dockerfile: ./packages/web/Dockerfile
             args:
-                API_ROUTE: 
-                GITHUB_ID: 
+                API_ROUTE: https://api.jpuf.xyz
+                GITHUB_ID: 38541170
         volumes:
             - nextimagecache:/.next/cache/images
         ports:
