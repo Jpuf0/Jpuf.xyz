@@ -12,6 +12,15 @@ router.get("/", (_, res) => {
   });
 })
 
+router.get("/health", (_, res) => {
+	res.api(200, {
+		message: "OK",
+		hostname: HOSTNAME,
+		env: process.env.NODE_ENV,
+		uptime: Math.floor(process.uptime() * 1000),
+	});
+});
+
 router.use((_, res) => {
   res.api(404, {
     message: "Not Found"
