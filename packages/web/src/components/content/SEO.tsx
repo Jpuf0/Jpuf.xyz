@@ -10,42 +10,6 @@ interface ISEO {
 }
 
 const SEO: FC<ISEO> = ({ description = "Homepage of jpuf.xyz." }) => {
-    const [isActive, setIsActive] = useState(true);
-
-    const tabChanged = () => {
-        setIsActive(!document.hidden);
-    };
-
-    useEffect(() => {
-        document.addEventListener("visibilitychange", tabChanged);
-
-        return () => {
-            document.removeEventListener("visibilitychange", tabChanged);
-        };
-    }, []);
-
-    useEffect(() => {
-        let titlePosition = -1;
-
-        const title = document.querySelectorAll("title")[0];
-
-        const handleTitle = {
-            active() {
-                title.innerHTML = activeTabText[(titlePosition += 1) % activeTabText.length];
-            },
-
-            inActive() {
-                title.innerHTML = inactiveTabText[(titlePosition += 1) % inactiveTabText.length];
-            },
-        };
-
-        const nameLoop = setInterval(isActive ? handleTitle.active : handleTitle.inActive, isActive ? 800 : 2000);
-
-        return () => {
-            clearInterval(nameLoop);
-        };
-    }, [isActive]);
-
     return (
         <Head>
             {/* Main Meta */}
